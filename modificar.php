@@ -16,10 +16,24 @@ include './Home.php';
                     $("#txtRegistro").val("VER SUCESOR");
                     $.ajax({
                         type: "POST",
-                        url: "verProce1.php",
+                        url: "proMod.php",
                         data: $("#formu").serialize(),
                         success: function (data) {
-                            $("#encon").html(data);
+                            $("#muestra").html(data);
+                        }
+                    });
+                })
+            });
+
+            $(document).ready(function (event) {
+                $("#buscador").click(function () {
+                    $("#txtRegistro").val("buscar");
+                    $.ajax({
+                        type: "POST",
+                        url: "Buscador.php",
+                        data: $("#buscador").serialize(),
+                        success: function (data) {
+                            $("#muestra").html(data);
                         }
                     });
                 })
@@ -28,12 +42,25 @@ include './Home.php';
         </script>
         <?php
         $enlace = new mysqli("localhost", "root", "", "pruebaprocesos");
-        $sql = $enlace->query("SELECT * FROM proceso where nivel = 1");
+        $sql = $enlace->query("SELECT * FROM proceso");
         ?>
+
+
+
+
+
+
+
         <div class="container col-11"  >     
             <div class="row"style="width: 950; background-color:  white; text-align: center">
                 <div class="row">
                     <div class=" container col-6 "  >
+                        <form id="buscador" > 
+                            <input  name="txtText" type="search" placeholder="Buscar aquí..."  >
+                            <input type="button" name="buscador" class="boton peque aceptar" value="buscar">
+                            <input type="hidden" name="txtRegistro" id="txtRegistro">
+                        </form>
+
                         <form id="formu">
                             <table class="table tab-content row">
                                 <td>
@@ -41,7 +68,7 @@ include './Home.php';
                                         <?php
                                         while ($row = mysqli_fetch_array($sql)) {
                                             ?>  
-                                            <option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option>
+                                            <option  value="<?php echo $row[0]; ?>"><?php echo 'Niv. ' . $row[2] . ' - ' . $row[1]; ?> </option>
                                             <?php
                                         }
                                         ?>
@@ -51,17 +78,15 @@ include './Home.php';
 
                                 </td>
                                 <td>
-                                    <input type="button" class="btn btn-success  " value="VER SUCESOR" id="btnver" style="width: 130px; height: 30px;  " />
+                                    <input type="button" class="btn btn-success  " value="Seleccionar" id="btnver" style="width: 130px; height: 30px;  " />
                                 </td>
                             </table>
                             <input type="hidden" name="txtRegistro" id="txtRegistro">
                         </form>
                     </div>
 
-                    <div id="muestra" class="container table-hover" >
 
-                    </div>
-                    <div id="encon" class="container table-hover" >
+                    <div id="muestra" class="container table-hover" >
 
                     </div>
 

@@ -10,52 +10,18 @@
         <script src="bootstrap-4.0.0-alpha.6-dist/js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
         <title></title>
+         <script src="bootstrap-4.0.0-alpha.6-dist/js/jquery-3.3.1.min.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+        <script src="bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css" ></script>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
 
-        <style>
-            table {
-                width: 90%;
-            }
 
-            thead, tbody, tr, td, th { display: block; }
-
-            tr:after {
-                content: ' ';
-                display: block;
-                visibility: hidden;
-                clear: both;
-            }
-
-            thead th {
-                height: 30px;
-
-                /*text-align: left;*/
-            }
-
-            tbody {
-                width: 900px;
-                height: 900px;
-                overflow-y: auto;
-            }
-
-            thead {
-                /* fallback */
-            }
-
-
-            tbody td, thead th {
-                width: 14%;
-                float: left;
-            }         
-
-        </style>
 
     </head>
     <body style=" background: url(img/fond.jpg); background-size: cover  ">
 
 
-        <script src="bootstrap-4.0.0-alpha.6-dist/js/jquery-3.3.1.min.js" ></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
-        <script src="bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css" ></script>
+       
+       
     </body>
 </html>

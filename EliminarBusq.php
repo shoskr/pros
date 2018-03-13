@@ -57,7 +57,7 @@ if (isset($_GET['mensaje'])) {
                     $("#txtRegistro").val("buscar");
                     $.ajax({
                         type: "POST",
-                        url: "Buscador.php",
+                        url: "EliminarVer.php",
                         data: $("#buscador").serialize(),
                         success: function (data) {
                             $("#muestra").html(data);
@@ -72,7 +72,7 @@ if (isset($_GET['mensaje'])) {
         $sql = $enlace->query("SELECT * FROM proceso");
         ?>
 
-        <div class="container col-11"  >     
+        <div class="container col-13"  >     
             <div class="row"style="width: 950; background-color:  white; text-align: center">
                 <div class="row">
                     <div class=" container col-6 "  >

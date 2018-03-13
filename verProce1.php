@@ -1,5 +1,6 @@
 <?php
 
+header('Content-Type: text/html; charset=UTF-8');
 if (isset($_POST["txtRegistro"])) {
 
     $regre = $_POST["txtRegistro"];
@@ -26,27 +27,35 @@ if (isset($_POST["txtRegistro"])) {
         $ante = $_POST["list"];
         $sql = $enlace->query("SELECT * FROM proceso where padre = " . $ante. " order by codigo");
         $sql2 = $enlace->query("SELECT * FROM proceso where padre = " . $ante);
-        $sql3 = $enlace->query("SELECT nombre,nivel, descripcion FROM proceso where codigo = " . $ante);
-       
-        $fila = $sql3->fetch_assoc();
+        $sql3 = $enlace->query("SELECT * FROM proceso where codigo = " . $ante);
+
+         $fila = $sql3->fetch_assoc();
          $cont = 0;
         while ($row = mysqli_fetch_array($sql2)) {
             $cont++;
         }
         
-        echo' <div class=" container col-6 ">';
-        echo' <table class="table tab-content row">';
+       echo' <div class=" container col-6 ">';
+        echo' <table class="table tab-content row" >';
         echo' <tr>';
-        echo' <td> Nivel '.$fila['nivel'].' </td>';
-        echo' <td> Sucesores '.$cont.' </td>';
-        echo' <td> '.$fila['nombre'].' </td>';
-        echo' <td> '.$fila['descripcion'].' </td>';
+        echo' <td> Nivel </td>';
+        echo' <td> Sucesores  </td>';
+        echo' <td style="width: 80px"> Descripcion  </td>';
+        echo' <td> Responsable </td>';
+        echo' <td> Pais </td>';
+        echo' </tr>';
+        echo' <tr>';
+        echo' <td> ' . $fila['nivel'] . ' </td>';
+        echo' <td> ' . $cont . ' </td>';
+        echo' <td style="width: 5000px"> ' . $fila['descripcion'] . ' </td>';
+        echo' <td> ' . $fila['responsable'] . ' </td>';
+        echo' <td> ' . $fila['pais'] . ' </td>';
         echo' </tr>';
         echo' <tr>';
         echo' <tr>';
         echo' </table >';
         echo' </div>';
-        
+
         echo' <div class=" container col-6 "  >';
         echo' <form id="formu2">';
         echo' <table class="table tab-content row">';

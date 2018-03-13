@@ -33,6 +33,7 @@ include './Home.php';
         <div class="container col-11"  >     
             <div class="row"style="width: 950; background-color:  white; text-align: center">
                 <div class="row">
+                   
                     <div class=" container col-6 "  >
                         <form id="formu">
                             <table class="table tab-content row">
